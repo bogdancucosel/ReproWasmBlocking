@@ -3,7 +3,7 @@ using System.IO;
 using System.Runtime.InteropServices.JavaScript;
 using System.Threading.Tasks;
 
-// Console.WriteLine("Hello, Browser!");
+Console.WriteLine("Hello, Browser!");
 
 public partial class MyClass
 {
@@ -21,6 +21,8 @@ public partial class MyClass
         var text = "The text written to the file";
         File.WriteAllText(path, text);
         Console.WriteLine($"Sync written to file {path}: {text}");
+
+        await Task.Delay(500);
 
         var textReadSync = File.ReadAllText(path);
         Console.WriteLine($"Sync read file {path}: {textReadSync}");
