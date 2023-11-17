@@ -20,10 +20,15 @@ const config = getConfig();
 const exports = await getAssemblyExports(config.mainAssemblyName);
 const text = exports.MyClass.Greeting();
 console.log(text);
+
+console.log('Start calling CreateFileSyncReadAsync from main.js');
 await exports.MyClass.CreateFileSyncReadAsync("/testFromMain.txt");
+console.log('End calling CreateFileSyncReadAsync from main.js');
 
 document.getElementById('out').innerHTML = text;
 document.getElementById('btn1').onclick = async () => {
+    console.log('Start calling CreateFileSyncReadAsync from button click');
     await exports.MyClass.CreateFileSyncReadAsync("/testFromBtn1.txt");
+    console.log('End calling CreateFileSyncReadAsync from button click');
 };
 await dotnet.run();
