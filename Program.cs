@@ -3,17 +3,17 @@ using System.IO;
 using System.Runtime.InteropServices.JavaScript;
 using System.Threading.Tasks;
 
-Console.WriteLine("Hello, Browser!");
+// Console.WriteLine("Hello, Browser!");
 
 public partial class MyClass
 {
-    [JSExport]
-    internal static string Greeting()
-    {
-        var text = $"Hello, World! Greetings from {GetHRef()}";
-        Console.WriteLine(text);
-        return text;
-    }
+    //[JSExport]
+    //internal static string Greeting()
+    //{
+    //    var text = $"Hello, World! Greetings from {GetHRef()}";
+    //    Console.WriteLine(text);
+    //    return text;
+    //}
 
     [JSExport]
     public static async Task CreateFileSyncReadAsync(string path)
@@ -30,6 +30,6 @@ public partial class MyClass
         Console.WriteLine($"Async read file {path}: {textReadAsync}");
     }
 
-    [JSImport("window.location.href", "main.js")]
-    internal static partial string GetHRef();
+    //[JSImport("window.location.href", "main.js")]
+    //internal static partial string GetHRef();
 }
